@@ -1,6 +1,6 @@
 # Windows XP Simulator
 
-A web-based Windows XP simulator that recreates the classic Windows XP experience in your browser. This project aims to provide a nostalgic interface with working applications and features from the Windows XP era.
+A web-based Windows XP simulator that recreates the classic Windows XP experience in your browser. This project aims to provide a nostalgic interface with working applications and features from the Windows XP era.  Inspired by "BookwormKevin" on Websim.
 
 ## Features
 
