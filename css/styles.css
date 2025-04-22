@@ -1,0 +1,355 @@
+/* General styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Tahoma, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+.desktop {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  background-image: url('/bg.jpg');
+}
+
+/* For IE, Minecraft, Plants vs Zombies, and Maario, AND virtualbox, change height a bit */
+.ie-window {
+  height: calc(100% - 40px);
+  box-sizing: border-box;
+}
+.threeD-window {
+  height: calc(100% - 45px);
+}
+.pvz-window {
+  height: 100%;
+}
+.mario-window {
+  height: 100%;
+}
+.vm-window {
+  height: 100%;
+}
+
+/* Generic window-content for other windows */
+.window-content {
+  padding: 0px 3px 0px 3px;
+  box-sizing: border-box;
+  overflow: auto;
+  flex: 1;
+  width: calc(100% - 2px); 
+  min-height: 0;
+}
+
+/* Taskbar styles */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background: url('/taskbar.png') no-repeat center;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+.start-button {
+  width: 100px;
+  height: 30px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('start.png') no-repeat left center;
+  background-size: cover;
+  padding: 0;
+  flex-shrink: 0; 
+}
+
+.start-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.start-button .start-text {
+  display: none;
+}
+.taskbar-buttons {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 0px;
+  overflow: hidden; 
+  flex: 1; 
+}
+.taskbar-button {
+  width: 180px; 
+  min-width: 100px; 
+  height: 40px;
+  background: url('taskbarbutton.png') no-repeat center;
+  background-size: contain;
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+  color: white;
+  padding: 2px 5px;
+  font-size: 11px;
+  cursor: pointer;
+  flex-shrink: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  user-select: none;
+  margin-right: 0;
+  transition: width 0.2s ease; 
+}
+.taskbar-button:focus,
+.taskbar-button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.taskbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; 
+}
+#clock {
+  color: white;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Icon and Start Menu styles */
+.icons {
+  position: relative;
+  height: calc(100% - 30px);
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  cursor: move;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}
+.icon img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 5px;
+}
+.start-menu {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 400px;
+  background-color: white; 
+  border: 1px solid #0054E3;
+  border-top-right-radius: 8px;
+  z-index: 1001;
+  overflow: hidden; 
+}
+
+.start-menu-header {
+  background: linear-gradient(to bottom, #0058E6 0%, #3A93FF 8%, #288CFF 40%, #127AFF 88%, #036FFC 100%);
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.start-menu-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  border: 2px solid #aaa;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.start-menu-header span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.start-menu-items {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 68px); 
+  margin: 0;
+  padding: 0;
+}
+
+.start-menu-column {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.first-column {
+  flex: 1;
+  background-color: white;
+}
+
+.second-column {
+  flex: 1;
+  background-color: #d3e5fa;
+  margin: 0;
+  padding: 10px;
+  height: auto;
+  position: relative;
+}
+
+.second-column::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -1000px; 
+  background-color: #d3e5fa;
+  z-index: -1;
+}
+
+.start-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.start-menu-item:hover {
+  background-color: #316AC5;
+  color: white;
+}
+
+.start-menu-item img {
+  margin-right: 10px;
+}
+
+/* Notification styles */
+.notification {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2000;
+}
+
+/* Context Menu styles */
+.context-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  z-index: 3000;
+  min-width: 100px;
+  padding: 2px 5px;
+}
+.context-menu-item {
+  padding: 3px 8px;
+  cursor: pointer;
+  font-family: Tahoma, sans-serif;
+  font-size: 13px;
+}
+
+.context-menu-item:hover {
+  background-color: #316AC5;
+  color: white;
+}
+
+/* Resize handle for resizable windows */
+.resize-handle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 0;
+  bottom: 0;
+  cursor: nwse-resize;
+  background: linear-gradient(to bottom right,
+    transparent 0%,
+    transparent calc(50% - 1px),
+    #808080 50%,
+    #808080 calc(50% + 1px),
+    transparent calc(50% + 2px),
+    transparent 100%);
+  opacity: 0.7;
+}
+
+/* Task Manager styles */
+.task-manager-tab {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    text-align: inherit;
+}
+
+.task-manager-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+}
+
+.task-manager-header {
+    background-color: #ece9d8; 
+    border-bottom: 1px solid #808080; 
+}
+
+.task-manager-header th {
+    border: 1px solid #ece9d8; 
+    border-right: 1px solid #c0c0c0; 
+    border-bottom: 1px solid #808080; 
+    padding: 2px 4px;
+    font-weight: normal; 
+}
+
+.task-manager-header th:last-child {
+    border-right: none; 
+}
+
+.task-manager-row {
+    border: none; 
+}
+
+.task-manager-cell {
+    border: none; 
+    padding: 1px 4px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-manager-row.selected {
+    background-color: #316AC5; 
+    color: white;
+}
+.task-manager-row.selected .task-manager-cell {
+    color: white; 
+}
+
+.task-manager-button {
+    padding: 2px 12px; 
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+}
